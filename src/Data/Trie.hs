@@ -11,7 +11,13 @@
 -- Stability   :  experimental
 -- Portability :  portable
 --
--- An implementation of a trie over a words.
+-- An implementation of a trie over a words. Properties:
+--
+-- @
+-- 'fromList' . 'toList' ≡ 'id'
+-- 'toList' . 'fromString' ≡ (:[])
+-- 'sort' . 'nub' . 'toList' . 'fromList' ≡ 'sort' . 'nub'
+-- @
 
 module Data.Trie ( empty, insert, fromString, fromList
                  , toList, lookupPrefix, forcedNext, Trie
@@ -28,7 +34,7 @@ import           GHC.Generics (Generic)
 #endif
 
 
-data Trie = Trie Bool (Map.Map Char Trie) deriving (Show)
+data Trie = Trie Bool (Map.Map Char Trie) deriving (Show, Eq)
 
 -- | A blank Trie
 empty :: Trie
