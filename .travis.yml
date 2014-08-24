@@ -1,0 +1,22 @@
+matrix:
+  allow_failures:
+    - env: GHCVER=head
+
+env:
+ - GHCVER=7.6.3
+ - GHCVER=7.8.1
+ - GHCVER=7.8.2
+ - GHCVER=7.8.3
+ - GHCVER=head
+
+script:
+ - travis_retry cabal install --enable-tests --only-dependencies --reorder-goals
+ - cabal install
+
+notifications:
+  email:
+    on_success: never
+    on_failure: change
+  irc:
+    channels:
+      - "irc.freenode.net#yi"
