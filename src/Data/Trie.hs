@@ -15,6 +15,7 @@
 
 module Data.Trie ( empty, insert, fromString, fromList
                  , toList, lookupPrefix, forcedNext, Trie
+                 , possibleSuffixes, certainSuffix
                  ) where
 
 import           Control.Monad

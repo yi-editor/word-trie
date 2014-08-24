@@ -1,1 +1,1 @@
-Implementation of a trie over words\n
+Implementation of a trie over words
