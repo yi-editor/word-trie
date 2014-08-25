@@ -1,8 +1,8 @@
 name:                word-trie
-version:             0.2.0.3
+version:             0.2.0.4
 synopsis:            Implementation of a finite trie over words.
 description:         Implementation of a finite trie over words.
-homepage:            https://github.com/yi-editor/yi
+homepage:            https://github.com/yi-editor/word-trie
 license:             GPL-2
 license-file:        LICENSE
 author:              Mateusz Kowalczyk
