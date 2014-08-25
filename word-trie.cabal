@@ -6,7 +6,7 @@ homepage:            https://github.com/yi-editor/word-trie
 license:             GPL-2
 license-file:        LICENSE
 author:              Mateusz Kowalczyk
-maintainer:          fuuzetsu@fuuzetsu.co.uk
+maintainer:          yi-devel@googlegroups.com
 category:            Data
 build-type:          Simple
 extra-source-files:  README.md
