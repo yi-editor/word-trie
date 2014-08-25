@@ -34,5 +34,6 @@ test-suite spec
       base
     , binary
     , containers
+    , derive
     , hspec
     , QuickCheck == 2.*
