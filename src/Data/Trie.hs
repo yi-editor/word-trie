@@ -1,6 +1,5 @@
 {-# LANGUAGE CPP #-}
 {-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE StandaloneDeriving #-}
 {-# LANGUAGE TemplateHaskell #-}
 {-# OPTIONS_HADDOCK show-extensions #-}
 
@@ -27,14 +26,9 @@ module Data.Trie ( empty, insert, fromString, fromList
 import           Control.Monad
 import           Data.Binary
 import qualified Data.Map as Map
-#if __GLASGOW_HASKELL__ < 708
-import           Data.DeriveTH
-#else
 import           GHC.Generics (Generic)
-#endif
 
-
-data Trie = Trie Bool (Map.Map Char Trie) deriving (Show, Eq)
+data Trie = Trie Bool (Map.Map Char Trie) deriving (Show, Eq, Generic)
 
 -- | A blank Trie
 empty :: Trie
@@ -93,9 +87,4 @@ certainSuffix :: String -> Trie -> String
 certainSuffix prefix fulltrie =
     lookupPrefix prefix fulltrie >>= forcedNext
 
-#if __GLASGOW_HASKELL__ < 708
-$(derive makeBinary ''Trie)
-#else
-deriving instance Generic Trie
 instance Binary Trie
-#endif
