@@ -15,7 +15,7 @@
 -- @
 -- 'fromList' . 'toList' ≡ 'id'
 -- 'toList' . 'fromString' ≡ (:[])
--- 'sort' . 'nub' . 'toList' . 'fromList' ≡ 'sort' . 'nub'
+-- 'toList' . 'fromList' ≡ 'sort' . 'nub'
 -- @
 
 module Data.Trie ( empty, insert, fromString, fromList
