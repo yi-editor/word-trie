@@ -45,14 +45,14 @@ spec = do
     size $ prop "ASCII" $ \(ASCII x) ->
       fromList (toList x) `shouldBe` x
 
-  describe "sort . nub . toList . fromList ≡ sort . nub" $ do
+  describe "toList . fromList ≡ sort . nub" $ do
     size $ prop "anything" $ \xs ->
       let ys = sort . nub $ map _unA xs
-      in toList (fromList ys) `shouldBe` ys
+      in toList (fromList (map _unA xs)) `shouldBe` ys
 
     size $ prop "ASCII" $ \xs ->
       let ys = sort $ nub xs
-      in toList (fromList ys) `shouldBe` ys
+      in toList (fromList xs) `shouldBe` ys
 
   describe "toList (fromString x) ≡ [x]" $ do
     size $ prop "anything" $ \(Anything x) ->
